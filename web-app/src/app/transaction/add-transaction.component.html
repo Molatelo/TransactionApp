@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row justify-content-center min-vh-100">
+    <div class="col-1 bg-white"></div>
+    <div class="col-10 bg-white">
+      <div class="card" style="height: 100%;">
+        <div class="card-body mt-4">
+          <div class="card-title">
+              <button type="button" [routerLink]="['/list']" class="btn btn-outline-dark">
+                  <i class="fas fa-list"></i> Transaction List
+              </button>
+          </div>
+          <hr />
+          <form [formGroup]="transactionFormGroup">
+            <div class="form-group">
+              <label for="dateInput">Date</label>
+              <input type="text" class="form-control border border-dark" id="dateInput" bsDatepicker [bsConfig]="bsConfig"  placement="bottom" formControlName="date">
+              </div>
+              <div class="form-group">
+                  <label for="typeInput">Type</label>
+                  <select class="form-control border border-dark" id="typeInput" formControlName="type">
+                    <option value="Debit">Debit</option>
+                    <option value="Deposit">Deposit</option>
+                    <option value="Payment">Payment</option>
+                    <option value="Transfer">Transfer</option>
+                    <option value="Withdrawal">Withdrawal</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="descInput">Description</label>
+                <textarea class="form-control border border-dark" id="descInput" rows="3"  formControlName="description"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="amountInput">Amount</label>
+                <input type="number" class="form-control border border-dark" id="amountInput"  formControlName="amount">
+              </div>
+              <div class="form-group">
+                  <label for="statusInput">Status</label>
+                  <select class="form-control border border-dark" id="statusInput" formControlName="status">
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Declined">Declined</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Processed">Processed</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Reversed">Reversed</option>
+                  </select>
+              </div>
+
+              <div class="btn-group float-right my-4">
+                <button type="reset" class="btn btn-outline-dark mr-2 float-right"><i class="fas fa-times-circle"></i> Reset</button>
+                <button type="button" (click)="save()" class="btn btn-outline-primary float-right"><i class="fas fa-save"></i> Save</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 bg-white"></div>
+  </div>
+</div>
